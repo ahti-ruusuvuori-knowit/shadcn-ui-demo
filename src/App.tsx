@@ -49,7 +49,7 @@ export default function App() {
           <img src="/capybara.svg" alt="" className="size-10" />
           <span className="text-base font-semibold tracking-tight">
             Capybara Club
-            <span className="mt-0.5 block text-xs font-normal tracking-normal text-muted-foreground">
+            <span className="mt-0.5 block font-normal tracking-normal text-muted-foreground">
               A very laid-back field guide
             </span>
           </span>
@@ -79,7 +79,7 @@ export default function App() {
             <span className="text-foreground">Field guide</span>
           </p>
           <div className="flex items-center gap-5">
-            <span className="hidden items-center gap-2 text-xs text-muted-foreground sm:inline-flex">
+            <span className="hidden items-center gap-2 text-muted-foreground sm:inline-flex">
               <span className="size-1.5 rounded-full bg-primary" />A shadcn/ui demo
             </span>
           </div>
@@ -110,7 +110,7 @@ export default function App() {
                 </p>
               </div>
             </div>
-            <p className="text-xs leading-6 text-muted-foreground">
+            <p className="leading-6 text-muted-foreground">
               Start in your existing project. These examples use Vite and React; refer to the{" "}
               <a
                 href="https://ui.shadcn.com/docs/installation"
@@ -149,14 +149,14 @@ export default function App() {
                     <div className="flex size-9 shrink-0 items-center justify-center rounded-md border bg-card">
                       <Icon className="size-4 text-primary" aria-hidden="true" />
                     </div>
-                    <h2 className="text-xs font-semibold">{title}</h2>
+                    <h2 className="font-semibold">{title}</h2>
                   </div>
-                  <p className="text-xs leading-6 text-muted-foreground">{body}</p>
-                  <pre className="whitespace-pre-wrap break-all rounded-md border bg-muted/50 p-3 text-xs leading-6">
+                  <p className="leading-6 text-muted-foreground">{body}</p>
+                  <pre className="whitespace-pre-wrap break-all rounded-md border bg-muted/50 p-3 leading-6">
                     <code>{example}</code>
                   </pre>
                   {explanation && (
-                    <p className="text-xs leading-6 text-muted-foreground">{explanation}</p>
+                    <p className="leading-6 text-muted-foreground">{explanation}</p>
                   )}
                 </li>
               ))}
@@ -185,7 +185,7 @@ export default function App() {
               {stats.map(({ label, value, unit, detail, icon: Icon }) => (
                 <Card key={label}>
                   <CardHeader className="flex-row items-center justify-between gap-3 pb-4">
-                    <CardTitle className="text-xs font-medium leading-5 text-muted-foreground">
+                    <CardTitle className="font-medium leading-5 text-muted-foreground">
                       {label}
                     </CardTitle>
                     <Icon className="size-4 shrink-0 text-primary/80" aria-hidden="true" />
@@ -197,7 +197,7 @@ export default function App() {
                         {unit}
                       </span>
                     </p>
-                    <p className="mt-3 text-xs leading-5 text-muted-foreground">{detail}</p>
+                    <p className="mt-3 leading-5 text-muted-foreground">{detail}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -262,16 +262,16 @@ export default function App() {
                               </span>
                               <div>
                                 <span className="font-medium">{sighting.name}</span>
-                                <span className="mt-1 block whitespace-nowrap text-xs text-muted-foreground">
+                                <span className="mt-1 block whitespace-nowrap text-muted-foreground">
                                   {sighting.location}
                                 </span>
                               </div>
                             </div>
                           </TableCell>
-                          <TableCell className="whitespace-nowrap text-xs text-muted-foreground">
+                          <TableCell className="whitespace-nowrap text-muted-foreground">
                             {sighting.activity}
                           </TableCell>
-                          <TableCell className="text-right font-mono text-xs text-muted-foreground">
+                          <TableCell className="text-right font-mono text-muted-foreground">
                             {sighting.time}
                           </TableCell>
                         </TableRow>
@@ -288,7 +288,7 @@ export default function App() {
                       )}
                     </TableBody>
                   </Table>
-                  <p role="status" className="border-t px-6 py-4 text-xs text-muted-foreground">
+                  <p role="status" className="border-t px-6 py-4 text-muted-foreground">
                     {filteredSightings.length} of {sightings.length} sightings · Fictional demo data
                   </p>
                 </CardContent>
@@ -313,7 +313,7 @@ export default function App() {
                       <Progress aria-label={`${name} share of fictional sightings`} value={value} />
                     </div>
                   ))}
-                  <p className="border-t pt-4 text-xs leading-5 text-muted-foreground">
+                  <p className="border-t pt-4 leading-5 text-muted-foreground">
                     Illustrative habitat mix.
                     <br />
                     No capybaras were asked to fill in a survey.
@@ -338,7 +338,7 @@ export default function App() {
             </Card>
           </section>
 
-          <footer className="flex flex-wrap items-center justify-between gap-4 border-t pt-6 text-xs text-muted-foreground">
+          <footer className="flex flex-wrap items-center justify-between gap-4 border-t pt-6 text-muted-foreground">
             <p>
               Capybara Club <span className="mx-2 text-border">/</span> Built with
               shadcn/ui
