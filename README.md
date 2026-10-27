@@ -1,6 +1,6 @@
 # Capybara Club
 
-A dark, restrained capybara dashboard for a 10–15 minute introduction to shadcn/ui. Built with Vite, React, TypeScript, and Tailwind CSS v4. The dashboard includes an introduction, four fact cards, searchable sightings, habitat progress bars, and field notes.
+A small dashboard for a 10–15 minute introduction to shadcn/ui. Built with Vite, React, TypeScript, and Tailwind CSS v4. The dashboard includes an introduction, four fact cards, searchable sightings, habitat progress bars, and field notes.
 
 ## Run locally
 
