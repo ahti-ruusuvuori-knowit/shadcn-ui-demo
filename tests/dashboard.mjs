@@ -55,7 +55,7 @@ try {
   assert.equal(await page.title(), "Capybara Club · A shadcn/ui demo")
   assert.equal(
     await page.getByRole("heading", { level: 1 }).textContent(),
-    "Good components. Your habitat.",
+    "Simple components, without the bloat",
   )
   assert.equal(await page.getByRole("progressbar").count(), 3)
 
@@ -105,7 +105,7 @@ try {
     await page.getByRole("tab", { name: "Habitat", exact: true }).click()
   }
 
-  await page.getByRole("link", { name: "Meet the dashboard" }).click()
+  await page.getByRole("link", { name: "Dashboard", exact: true }).click()
   assert.equal(new URL(page.url()).hash, "#overview")
   await page.evaluate(() => window.scrollTo(0, 0))
   await mkdir("test-results", { recursive: true })
