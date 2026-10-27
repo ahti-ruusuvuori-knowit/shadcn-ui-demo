@@ -1,10 +1,8 @@
 import { useState } from "react"
 import {
-  ArrowDown,
   ArrowUpRight,
   BookOpen,
   Code2,
-  Compass,
   Layers,
   LayoutDashboard,
   MapPin,
@@ -28,10 +26,8 @@ import { FactExplorer } from "@/components/demo/fact-explorer"
 import { habitats, sightings, stats } from "@/lib/data"
 
 const navigation = [
-  { href: "#introduction", label: "The introduction", icon: BookOpen },
-  { href: "#overview", label: "Overview", icon: LayoutDashboard },
-  { href: "#sightings", label: "Sightings", icon: MapPin },
-  { href: "#field-notes", label: "Field notes", icon: Compass },
+  { href: "#introduction", label: "Introduction", icon: BookOpen },
+  { href: "#overview", label: "Dashboard", icon: LayoutDashboard },
 ]
 
 export default function App() {
@@ -58,9 +54,6 @@ export default function App() {
             </span>
           </span>
         </a>
-        <div className="px-7 pb-3 pt-9 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          The field guide
-        </div>
         <nav aria-label="Main navigation" className="space-y-1 px-4">
           {navigation.map(({ href, label, icon: Icon }) => (
             <a
@@ -73,17 +66,6 @@ export default function App() {
             </a>
           ))}
         </nav>
-        <div className="mx-6 mt-auto mb-7 rounded-lg border border-dashed p-4">
-          <div className="mb-2 flex items-center gap-2 text-xs font-medium">
-            <span className="size-1.5 rounded-full bg-primary" />
-            Small components. Big chill.
-          </div>
-          <p className="text-xs leading-5 text-muted-foreground">
-            Built with shadcn/ui.
-            <br />
-            Made a little more our own.
-          </p>
-        </div>
       </aside>
 
       <div className="lg:pl-60">
@@ -93,14 +75,13 @@ export default function App() {
             Capybara Club
           </a>
           <p className="hidden text-sm text-muted-foreground lg:block">
-            The club <span className="mx-3 text-border">/</span>
+            Capybara Club <span className="mx-3 text-border">/</span>
             <span className="text-foreground">Field guide</span>
           </p>
           <div className="flex items-center gap-5">
             <span className="hidden items-center gap-2 text-xs text-muted-foreground sm:inline-flex">
               <span className="size-1.5 rounded-full bg-primary" />A shadcn/ui demo
             </span>
-            <FactOfDay />
           </div>
         </header>
 
@@ -122,49 +103,64 @@ export default function App() {
                   id="intro-heading"
                   className="text-3xl font-semibold tracking-tight sm:text-4xl"
                 >
-                  Good components. Your habitat.
+                  Simple components, without the bloat
                 </h1>
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
-                  A small field guide to components you own, with a little help from the world’s
-                  most unbothered rodent.
+                  Removes the need for heavy component libraries and gives you full control over your UI.
                 </p>
               </div>
-              <a
-                href="#overview"
-                className="inline-flex items-center gap-2 text-xs font-medium text-primary"
-              >
-                Meet the dashboard <ArrowDown className="size-3.5" aria-hidden="true" />
-              </a>
             </div>
-            <div className="grid gap-6 sm:grid-cols-3">
+            <p className="text-xs leading-6 text-muted-foreground">
+              Start in your existing project. These examples use Vite and React; refer to the{" "}
+              <a
+                href="https://ui.shadcn.com/docs/installation"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-primary underline underline-offset-4"
+              >
+                setup guide for your framework
+              </a>
+              .
+            </p>
+            <ol className="grid gap-6 sm:grid-cols-3">
               {[
                 {
                   icon: Code2,
-                  title: "01 / Own the source",
-                  body: "The CLI adds component code to your project. Read it, change it, and make it yours.",
+                  title: "01 / Initialize shadcn/ui",
+                  body: "Run once from your project root. Follow the prompts to set up configuration, theme tokens, and dependencies.",
+                  example: "npx shadcn@latest init",
+                  explanation: "Runs the latest shadcn CLI to initialize your project. It creates components.json, installs dependencies, adds the cn utility, and configures CSS variables for theming.",
                 },
                 {
                   icon: Layers,
-                  title: "02 / Compose the pieces",
-                  body: "Accessible primitives handle interaction. Small React components fit together.",
+                  title: "02 / Add components",
+                  body: "Choose the pieces you need. The CLI adds their source files and installs the required dependencies.",
+                  example: "npx shadcn@latest add button",
                 },
                 {
                   icon: SlidersHorizontal,
-                  title: "03 / Find your style",
-                  body: "Use Tailwind classes and shared theme tokens to give each component your own look.",
+                  title: "03 / Use and customize",
+                  body: "Import the component into your UI. Adjust its props, Tailwind classes, or local source to make it your own.",
+                  example: 'import { Button } from "@/components/ui/button"\n\nexport function Example() {\n  return (\n    <Button variant="outline" className="rounded-full">\n      Get started\n    </Button>\n  )\n}',
                 },
-              ].map(({ icon: Icon, title, body }) => (
-                <div key={title} className="flex gap-3">
-                  <div className="flex size-9 shrink-0 items-center justify-center rounded-md border bg-card">
-                    <Icon className="size-4 text-primary" aria-hidden="true" />
-                  </div>
-                  <div>
+              ].map(({ icon: Icon, title, body, example, explanation }) => (
+                <li key={title} className="min-w-0 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-md border bg-card">
+                      <Icon className="size-4 text-primary" aria-hidden="true" />
+                    </div>
                     <h2 className="text-xs font-semibold">{title}</h2>
-                    <p className="mt-2 text-xs leading-6 text-muted-foreground">{body}</p>
                   </div>
-                </div>
+                  <p className="text-xs leading-6 text-muted-foreground">{body}</p>
+                  <pre className="whitespace-pre-wrap break-all rounded-md border bg-muted/50 p-3 text-xs leading-6">
+                    <code>{example}</code>
+                  </pre>
+                  {explanation && (
+                    <p className="text-xs leading-6 text-muted-foreground">{explanation}</p>
+                  )}
+                </li>
               ))}
-            </div>
+            </ol>
           </section>
 
           <section id="overview" aria-labelledby="overview-heading" className="space-y-6">
@@ -174,13 +170,16 @@ export default function App() {
                   The dashboard
                 </p>
                 <h2 id="overview-heading" className="text-2xl font-semibold tracking-tight">
-                  Life in the slow lane.
+                  Capybara Facts
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Big rodents. Small worries. A few things worth knowing.
                 </p>
               </div>
-              <Traits />
+              <div className="ml-auto flex gap-4">
+                <Traits />
+                <FactOfDay />
+              </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {stats.map(({ label, value, unit, detail, icon: Icon }) => (
@@ -321,14 +320,6 @@ export default function App() {
                   </p>
                 </CardContent>
               </Card>
-              <div className="flex gap-3 px-1 text-xs leading-6 text-muted-foreground">
-                <BookOpen className="mt-1 size-4 shrink-0 text-primary" aria-hidden="true" />
-                <p>
-                  Nature supplies the facts.
-                  <br />
-                  We supply the unnecessarily tidy dashboard.
-                </p>
-              </div>
             </div>
           </div>
 
@@ -349,8 +340,8 @@ export default function App() {
 
           <footer className="flex flex-wrap items-center justify-between gap-4 border-t pt-6 text-xs text-muted-foreground">
             <p>
-              Capybara Club <span className="mx-2 text-border">/</span> Built slowly, with
-              shadcn/ui.
+              Capybara Club <span className="mx-2 text-border">/</span> Built with
+              shadcn/ui
             </p>
             <div className="flex gap-5">
               <a
